@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sucess</title>
+    <h3 size="40" align="center">WELCOME TO THE HOME</font></h3>
+    <hr>
+    <br/><br/><br/>
+    <script type="text/javascript">
+
+        function ShowDiv(myDiv)
+        {
+             document.getElementById(myDiv).style.display = "";
+        }
+        function ShowDiv2(myDiv)
+        {
+            document.getElementById(myDiv).style.display = "";
+        }
+    </script>
+</head>
+
+<form>
+
+
+       <div align="center">
+        <input type="button"name="GetData" value="Gatedata"onclick="ShowDiv('myDiv')">&nbsp;&nbsp;&nbsp;
+        <input type="button"name="DeleteData" value="DeleteUser" onclick="ShowDiv2('myDiv')"/>
+           <input type="button" value="Add User Manually"/><a href="/user" type="button">Add User Manually</a>
+     </div>
+        {% if msg %}
+        {{msg}}
+        {% endif %}
+
+</form>
+    <br/><br/>
+    <div id="myDiv" style="display:none;" align="center">
+        <h4>THE DATA IS...// </h4>
+    <table  style="" border="2">
+         <thead>
+            <tr>
+               <th>username</th>&nbsp;&nbsp;&nbsp;&nbsp;
+               <th>email</th>&nbsp;&nbsp;&nbsp;&nbsp;
+               <th>password</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <th>confirm</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <th id="uEdith">Edit</th>
+                <th id="udeleteh">Delete</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for user2 in records %}
+               <tr>
+                  <td>{{ user2.username }}</td>
+                  <td>{{ user2.email }}</td>
+                  <td>{{ user2.password }}</td>
+                  <td>{{ user2.confirm }}</td>
+                   <td id="uEdit"><a href="/edit?id={{user2.id}}">EditUser</a> </td>
+                   <td id="udelete"><a href="/show?delid={{user2.id}}">DeleteUser</a> </td>
+               </tr>
+            {% endfor %}
+         </tbody>
+    </table>
+    </div>
+</form>
+</body>
+</html>

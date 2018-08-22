@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RegisterSuccess</title>
+</head>
+<body>
+
+
+
+
+ <table>
+         <thead>
+            <tr>
+               <th>Firstname</th>
+               <th>username</th>
+               <th>email</th>
+               <th>password</th>
+                <th>confirm</th>
+
+
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for user1 in records %}
+               <tr>
+                  <td>{{ user1.firstname }}</td>
+                  <td>{{ user1.username }}</td>
+                  <td>{{ user1.email }}</td>
+                  <td>{{ user1.password }}</td>
+                   <td>{{user1.confirm }}</td>
+
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+        <a href="/">Login Page</a>
+
+</body>
+</html>
